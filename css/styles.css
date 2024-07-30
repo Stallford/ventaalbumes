@@ -1,0 +1,374 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header y footer */
+header {
+  background-color: #6200ea; /* Color del header */
+  color: white;
+  padding: 10px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box; /* Para asegurarnos de que el padding se incluya dentro del ancho total */
+}
+
+.header-left h2 {
+  margin: 0;
+}
+
+.header-right a {
+  color: white; /* Color de los enlaces en el header */
+  margin: 10px;
+}
+
+.header-right a.logout-button {
+  color: #ff5722; /* Color del enlace de cerrar sesión */
+}
+
+footer {
+  background-color: #6200ea; /* Color del footer */
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Contenedor general para páginas que no sean home */
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
+  margin: 250px auto 0; /* Ajuste para centrar y espacio superior para el header */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor específico para la página de inicio */
+.home-container {
+  margin-top: 100px; /* Ajuste para que el contenido no quede oculto bajo el header */
+  box-sizing: border-box;
+  overflow-y: auto; /* Permitir el scroll */
+  max-height: 80vh; /* Limitar la altura máxima */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Otros estilos */
+h1 {
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: calc(100% - 22px);
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5cb85c;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+p {
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+/* Estilos para el video de fondo */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos específicos para la página de inicio */
+.welcome-message {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 97%; /* Asegura que la barra de búsqueda ocupe el mismo ancho que el contenedor */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+.search-bar input[type="text"] {
+  width: 100%; /* Asegura que el input ocupe todo el ancho del contenedor .search-bar */
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.album-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.album-card img {
+  width: 100%;
+  height: auto;
+}
+
+.album-info {
+  padding: 10px;
+}
+
+.album-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.album-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px; 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 500px; /* Ancho máximo del modal */
+  border-radius: 8px; 
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.error {
+  color: red;
+  margin-bottom: 10px;
+  display: none; /* Oculto por defecto */
+}
+
+.success {
+  color: green;
+  margin-bottom: 10px;
+  display: none; /* Oculto por defecto */
+}
+
+/* Efecto de hover para las tarjetas de álbumes */
+.album-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card:hover {
+  transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra más prominente */
+}
+
+.album-card img {
+  transition: opacity 0.3s ease;
+}
+
+.album-card:hover img {
+  opacity: 0.8; /* Añade un efecto de desvanecimiento a la imagen al pasar el cursor */
+}
+
+.modal-image {
+  flex: 1; /* Permite que el contenedor de la imagen use el espacio disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modal-image img {
+  max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+  max-height: 100%; /* Asegura que la imagen no sea más alta que su contenedor */
+  object-fit: contain; /* Mantiene la proporción de la imagen dentro del contenedor */
+}
+
+.modal-info {
+  margin-top: 20px; /* Espacio entre la imagen y la información */
+}
+.cart-icon {
+  width: 24px; /* Ajusta el tamaño del icono según tus necesidades */
+  height: 24px;
+}
+.cart-button {
+  text-decoration: none; /* Asegura que el subrayado esté quitado específicamente para el carrito */
+}
+/* Estilo del modal del carrito */
+#cartModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+#cartModal .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Puedes ajustar el tamaño máximo del modal */
+}
+
+/* Estilo de cada ítem del carrito */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Espacio entre ítems */
+  border-bottom: 1px solid #ddd; /* Línea divisoria entre ítems */
+  padding-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between; /* Espacia el título y el precio */
+  align-items: center;
+}
+
+.cart-item-title {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.cart-item-price {
+  text-align: right;
+}
+
+/* Contenedor para el precio total */
+.cart-total-container {
+  display: flex;
+  justify-content: flex-end; /* Alinea el total al final */
+  margin-top: 20px;
+}
+
+.cart-total {
+  font-weight: bold;
+}
