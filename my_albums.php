@@ -4,6 +4,23 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit();
 }
+
+// Conectar con la base de datos
+$db = new mysqli('localhost', 'root', '', 'ventaalbumes');
+
+// Verificar la conexión
+if ($db->connect_error) {
+    die("Error de conexión: " . $db->connect_error);
+}
+
+// Consultar los álbumes del usuario actual
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM albumes WHERE usuario_id = ?";
+$stmt = $db->prepare($query);
+$stmt->bind_param('i', $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -11,46 +28,32 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Tienda de Álbumes</title>
+    <title>Mis Álbumes - Tienda de Álbumes</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header>
     <div class="header-left">
-        <h2>Tienda de Álbumes</h2>
+    <a href="home.php"><h2>Tienda de Álbumes</h2></a>
     </div>
     <div class="header-right">
-    <a href="#" id="cartBtn" class="cart-button">
+        <a href="#" id="cartBtn" class="cart-button">
             <img src="icons/carrito.png" alt="Carrito" class="cart-icon">
         </a>
         <a href="#" id="editUserBtn"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
-        <a href="my_albums.php" >Tus albums</a>
         <a href="#" id="sellAlbumBtn" class="sell-album-button">Vende tu Álbum</a>
         <a href="logout.php" class="logout-button">Cerrar sesión</a>
     </div>
 </header>
 
-
 <div class="home-container">
     <div class="welcome-message">
-        <h1>Bienvenido a la Tienda de Álbumes</h1>
+        <h1>Mis Álbumes</h1>
     </div>
     <div class="search-bar">
         <input type="text" placeholder="Buscar álbumes...">
     </div>
     <?php
-    // Conectar con la base de datos
-    $db = new mysqli('localhost', 'root', '', 'ventaalbumes');
-
-    // Verificar la conexión
-    if ($db->connect_error) {
-        die("Error de conexión: " . $db->connect_error);
-    }
-
-    // Consultar los álbumes
-    $query = "SELECT * FROM albumes";
-    $result = $db->query($query);
-
     if ($result->num_rows > 0) {
         echo '<div class="album-grid" id="albumGrid">';
         
@@ -61,7 +64,7 @@ if (!isset($_SESSION['user_id'])) {
             $numero_canciones = htmlspecialchars($row['numero_canciones']);
             $precio = htmlspecialchars($row['precio']);
             $nombre_grupo = htmlspecialchars($row['nombre_grupo']);
-            $album_id = $row['id']; // Asumiendo que 'id' es el campo de identificador único
+            $album_id = $row['id'];
 
             echo '
             <div class="album-card" data-album-id="' . $album_id . '">
@@ -77,15 +80,16 @@ if (!isset($_SESSION['user_id'])) {
         }
         
         echo '</div>';
-        echo '<p id="noResultsMessage" style="display: none;">No hay álbumes disponibles.</p>';
+        echo '<p id="noResultsMessage" style="display: none;">No tienes álbumes publicados.</p>';
     } else {
-        echo "<p>No hay álbumes disponibles.</p>";
+        echo "<p>No tienes álbumes publicados.</p>";
     }
 
-    // Cerrar la conexión
+    $stmt->close();
     $db->close();
     ?>
 </div>
+
 <footer>
     <p>&copy; 2024 Tienda de Álbumes de Twice. Todos los derechos reservados.</p>
 </footer>
@@ -114,7 +118,6 @@ if (!isset($_SESSION['user_id'])) {
         </form>
     </div>
 </div>
-
 <!-- Modal para vender álbum -->
 <div id="sellAlbumModal" class="modal">
     <div class="modal-content">
@@ -141,7 +144,6 @@ if (!isset($_SESSION['user_id'])) {
         </form>
     </div>
 </div>
-
 <!-- Modal para información del álbum -->
 <div id="albumModal" class="modal">
     <div class="modal-content">
@@ -168,12 +170,10 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cart-total-container">
             <div class="cart-total" id="cartTotal">Total: $0.00</div>
         </div>
-        <button id="checkoutBtn">Proceder al Pago</button> <!-- Botón para proceder al pago -->
+        <button id="checkoutBtn">Proceder al Pago</button>
         <button id="closeCartModalBtn">Cerrar</button>
     </div>
 </div>
-
-
 
 <script src="js/modal.js"></script>
 <script src="js/search.js"></script>

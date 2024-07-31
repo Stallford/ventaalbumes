@@ -26,6 +26,11 @@ header {
 
 .header-left h2 {
   margin: 0;
+
+}
+.header-left a {
+  color: white; /* Color de los enlaces en el header */
+  text-decoration: none;
 }
 
 .header-right a {
