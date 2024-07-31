@@ -155,7 +155,8 @@ $result = $stmt->get_result();
             <div class="modal-info">
                 <!-- Aquí se mostrará la información del álbum -->
             </div>
-            <button id="addToCartBtn">Agregar al carrito</button>
+            <button id="addToCartBtn" style="display: none;">Agregar al carrito</button>
+            <button id="deleteAlbumBtn">Eliminar Álbum</button>
             <button id="cancelBtn">Cancelar</button>
         </div>
     </div>
@@ -179,5 +180,6 @@ $result = $stmt->get_result();
 <script src="js/search.js"></script>
 <script src="js/albumInfo.js"></script>
 <script src="js/cart.js"></script>
+<script src="js/deleteAlbum.js"></script>
 </body>
 </html>

@@ -20,6 +20,7 @@ if ($result->num_rows > 0) {
     $album = $result->fetch_assoc();
     // Asegúrate de que las claves coincidan con las que usas en JavaScript
     $response = [
+        'id' => $album['id'], // Incluye el ID del álbum en la respuesta
         'nombre_album' => $album['nombre'],
         'nombre_grupo' => $album['nombre_grupo'],
         'fecha_lanzamiento' => $album['año_lanzamiento'],
