@@ -6,6 +6,14 @@ header('Content-Type: application/json'); // Asegúrate de que la respuesta sea 
 $response = array();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Verifica que el usuario esté autenticado
+    if (!isset($_SESSION['user_id'])) {
+        $response['error_message'] = "No estás autenticado.";
+        echo json_encode($response);
+        exit();
+    }
+
+    $usuario_id = $_SESSION['user_id']; // Obtén el usuario_id de la sesión
     $nombre = $_POST['nombre'];
     $año_lanzamiento = $_POST['año_lanzamiento'];
     $numero_canciones = $_POST['numero_canciones'];
@@ -32,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 if ($db->connect_error) {
                     $response['error_message'] = "Error de conexión a la base de datos: " . $db->connect_error;
                 } else {
-                    $stmt = $db->prepare("INSERT INTO albumes (nombre, año_lanzamiento, numero_canciones, nombre_grupo, portada_foto, precio) VALUES (?, ?, ?, ?, ?, ?)");
-                    $stmt->bind_param("ssissd", $nombre, $año_lanzamiento, $numero_canciones, $nombre_grupo, $fileName, $precio);
+                    $stmt = $db->prepare("INSERT INTO albumes (nombre, año_lanzamiento, numero_canciones, nombre_grupo, portada_foto, precio, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->bind_param("ssissdi", $nombre, $año_lanzamiento, $numero_canciones, $nombre_grupo, $fileName, $precio, $usuario_id);
                     
                     if ($stmt->execute()) {
                         $response['success_message'] = "Álbum publicado exitosamente.";
@@ -58,4 +66,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 echo json_encode($response);
-?>
