@@ -167,9 +167,11 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cart-total-container">
             <div class="cart-total" id="cartTotal">Total: $0.00</div>
         </div>
+        <button id="checkoutBtn">Proceder al Pago</button> <!-- Botón para proceder al pago -->
         <button id="closeCartModalBtn">Cerrar</button>
     </div>
 </div>
+
 
 
 <script src="js/modal.js"></script>

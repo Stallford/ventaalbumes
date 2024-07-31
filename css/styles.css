@@ -372,3 +372,22 @@ body, html {
 .cart-total {
   font-weight: bold;
 }
+
+/* Estilo específico para el botón de eliminación */
+button.remove-btn {
+  margin-top: 5px;
+  width: fit-content;
+  padding: 2px 5px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; /* Ajustar tamaño de fuente si es necesario */
+  border-radius: 3px; /* Añadir bordes redondeados */
+  outline: none; /* Eliminar contorno predeterminado */
+}
+
+button.remove-btn:hover {
+  background-color: darkred; /* Cambiar color al pasar el cursor */
+}
+
