@@ -1,19 +1,19 @@
 <?php
 session_start();
 
-header('Content-Type: application/json'); // Asegúrate de que la respuesta sea JSON
+header('Content-Type: application/json'); 
 
 $response = array();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica que el usuario esté autenticado
+   
     if (!isset($_SESSION['user_id'])) {
         $response['error_message'] = "No estás autenticado.";
         echo json_encode($response);
         exit();
     }
 
-    $usuario_id = $_SESSION['user_id']; // Obtén el usuario_id de la sesión
+    $usuario_id = $_SESSION['user_id']; 
     $nombre = $_POST['nombre'];
     $año_lanzamiento = $_POST['año_lanzamiento'];
     $numero_canciones = $_POST['numero_canciones'];
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dest_path = $uploadFileDir . $fileName;
 
             if(move_uploaded_file($fileTmpPath, $dest_path)) {
-                // Insertar datos en la base de datos
+                
                 $db = new mysqli('localhost', 'root', '', 'ventaalbumes');
 
                 if ($db->connect_error) {

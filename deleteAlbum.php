@@ -1,23 +1,20 @@
 <?php
 session_start();
 
-// Verificar si el usuario está autenticado
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['success' => false, 'message' => 'No estás autenticado.']);
     exit();
 }
 
-// Verificar la conexión a la base de datos
 $db = new mysqli('localhost', 'root', '', 'ventaalbumes');
 if ($db->connect_error) {
     die("Error de conexión: " . $db->connect_error);
 }
 
-// Obtener el ID del álbum del POST
 $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
 
 if ($id > 0) {
-    // Preparar la consulta de eliminación
+
     $query = "DELETE FROM albumes WHERE id = ?";
     $stmt = $db->prepare($query);
     $stmt->bind_param('i', $id);

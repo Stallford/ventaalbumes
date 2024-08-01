@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fetch(`getAlbumInfo.php?id=${albumId}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data); // Verifica el contenido de data
+          console.log(data); 
           const modalImage = albumModal.querySelector('.modal-image');
           const modalInfo = albumModal.querySelector('.modal-info');
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p>Número de canciones: ${data.numero_canciones}</p>
               <p>Precio: $${data.precio}</p>
             `;
-            currentAlbum = data; // Guarda la información del álbum actual
+            currentAlbum = data; 
           }
           
           albumModal.style.display = 'block';
@@ -45,21 +45,21 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModal.addEventListener('click', closeModalHandler);
   cancelBtn.addEventListener('click', closeModalHandler);
 
-  // Cerrar el modal si el usuario hace clic fuera de él
+  
   window.addEventListener('click', (event) => {
     if (event.target === albumModal) {
       closeModalHandler();
     }
   });
 
-  // Cerrar el modal si el usuario presiona la tecla 'Esc'
+  
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeModalHandler();
     }
   });
 
-  // Funcionalidad del botón "Agregar al carrito"
+  
   addToCartBtn.addEventListener('click', () => {
     if (currentAlbum) {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];

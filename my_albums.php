@@ -5,15 +5,12 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Conectar con la base de datos
 $db = new mysqli('localhost', 'root', '', 'ventaalbumes');
 
-// Verificar la conexión
 if ($db->connect_error) {
     die("Error de conexión: " . $db->connect_error);
 }
 
-// Consultar los álbumes del usuario actual
 $user_id = $_SESSION['user_id'];
 $query = "SELECT * FROM albumes WHERE usuario_id = ?";
 $stmt = $db->prepare($query);
@@ -91,10 +88,10 @@ $result = $stmt->get_result();
 </div>
 
 <footer>
-    <p>&copy; 2024 Tienda de Álbumes de Twice. Todos los derechos reservados.</p>
+    <p>&copy; 2024 Construcción de Software. Todos los derechos reservados.</p>
 </footer>
 
-<!-- Modal para editar usuario -->
+<!-- Modal editar usuario -->
 <div id="editUserModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -118,7 +115,7 @@ $result = $stmt->get_result();
         </form>
     </div>
 </div>
-<!-- Modal para vender álbum -->
+<!-- Modal vender álbum -->
 <div id="sellAlbumModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -144,16 +141,16 @@ $result = $stmt->get_result();
         </form>
     </div>
 </div>
-<!-- Modal para información del álbum -->
+<!-- Modal información del álbum -->
 <div id="albumModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <div class="modal-body">
             <div class="modal-image">
-                <!-- Aquí se mostrará la imagen del álbum -->
+
             </div>
             <div class="modal-info">
-                <!-- Aquí se mostrará la información del álbum -->
+
             </div>
             <button id="addToCartBtn" style="display: none;">Agregar al carrito</button>
             <button id="deleteAlbumBtn">Eliminar Álbum</button>
@@ -162,11 +159,11 @@ $result = $stmt->get_result();
     </div>
 </div>
 
-<!-- Modal del Carrito -->
+<!-- Modal Carrito -->
 <div id="cartModal" class="modal">
     <div class="modal-content">
         <div id="cartItems">
-            <!-- Los ítems del carrito se llenarán dinámicamente aquí -->
+
         </div>
         <div class="cart-total-container">
             <div class="cart-total" id="cartTotal">Total: $0.00</div>

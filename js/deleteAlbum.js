@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p>Número de canciones: ${data.numero_canciones}</p>
               <p>Precio: $${data.precio}</p>
             `;
-            currentAlbum = data; // Guarda la información del álbum actual
+            currentAlbum = data; 
           }
           
           albumModal.style.display = 'block';
@@ -44,21 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
   closeModal.addEventListener('click', closeModalHandler);
   cancelBtn.addEventListener('click', closeModalHandler);
 
-  // Cerrar el modal si el usuario hace clic fuera de él
+ 
   window.addEventListener('click', (event) => {
     if (event.target === albumModal) {
       closeModalHandler();
     }
   });
 
-  // Cerrar el modal si el usuario presiona la tecla 'Esc'
+  
   window.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeModalHandler();
     }
   });
 
-  // Funcionalidad del botón "Eliminar álbum"
+
   deleteAlbumBtn.addEventListener('click', () => {
     if (currentAlbum && currentAlbum.id) {
       if (confirm('¿Estás seguro de que quieres eliminar este álbum?')) {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           if (data.success) {
             alert('Álbum eliminado exitosamente');
-            location.reload(); // Recarga la página para actualizar la lista de álbumes
+            location.reload(); 
           } else {
             alert('Error al eliminar el álbum: ' + (data.message || ''));
           }

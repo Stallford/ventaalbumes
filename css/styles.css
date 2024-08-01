@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -9,9 +9,8 @@ body {
   align-items: center;
 }
 
-/* Header y footer */
 header {
-  background-color: #6200ea; /* Color del header */
+  background-color: #6200ea; 
   color: white;
   padding: 10px 20px;
   width: 100%;
@@ -21,7 +20,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  box-sizing: border-box; /* Para asegurarnos de que el padding se incluya dentro del ancho total */
+  box-sizing: border-box; 
 }
 
 .header-left h2 {
@@ -29,21 +28,21 @@ header {
 
 }
 .header-left a {
-  color: white; /* Color de los enlaces en el header */
+  color: white; 
   text-decoration: none;
 }
 
 .header-right a {
-  color: white; /* Color de los enlaces en el header */
+  color: white; 
   margin: 10px;
 }
 
 .header-right a.logout-button {
-  color: #ff5722; /* Color del enlace de cerrar sesión */
+  color: #ff5722; 
 }
 
 footer {
-  background-color: #6200ea; /* Color del footer */
+  background-color: #6200ea; 
   color: white;
   text-align: center;
   padding: 10px 20px;
@@ -56,31 +55,31 @@ footer p {
   margin: 0;
 }
 
-/* Contenedor general para páginas que no sean home */
+
 .container {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px; /* Ajusta el ancho máximo según sea necesario */
-  margin: 250px auto 0; /* Ajuste para centrar y espacio superior para el header */
+  max-width: 800px; 
+  margin: 250px auto 0; 
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
 
-/* Contenedor específico para la página de inicio */
+
 .home-container {
-  margin-top: 100px; /* Ajuste para que el contenido no quede oculto bajo el header */
+  margin-top: 100px; 
   box-sizing: border-box;
-  overflow-y: auto; /* Permitir el scroll */
-  max-height: 80vh; /* Limitar la altura máxima */
+  overflow-y: auto; 
+  max-height: 80vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Otros estilos */
+
 h1 {
   color: #333;
 }
@@ -131,7 +130,7 @@ p {
   color: green;
 }
 
-/* Estilos para el video de fondo */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -157,7 +156,7 @@ body, html {
   padding: 20px;
 }
 
-/* Estilos específicos para la página de inicio */
+
 .welcome-message {
   background-color: #fff;
   padding: 10px;
@@ -171,12 +170,12 @@ body, html {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-  width: 97%; /* Asegura que la barra de búsqueda ocupe el mismo ancho que el contenedor */
-  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+  width: 97%; 
+  box-sizing: border-box; 
 }
 
 .search-bar input[type="text"] {
-  width: 100%; /* Asegura que el input ocupe todo el ancho del contenedor .search-bar */
+  width: 100%; 
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ddd;
@@ -221,9 +220,9 @@ body, html {
   color: #555;
 }
 
-/* Estilos para el modal */
+
 .modal {
-  display: none; /* Oculto por defecto */
+  display: none; 
   position: fixed; 
   z-index: 1; 
   left: 0;
@@ -242,7 +241,7 @@ body, html {
   padding: 20px;
   border: 1px solid #888;
   width: 80%; 
-  max-width: 500px; /* Ancho máximo del modal */
+  max-width: 500px; 
   border-radius: 8px; 
 }
 
@@ -262,23 +261,23 @@ body, html {
 .error {
   color: red;
   margin-bottom: 10px;
-  display: none; /* Oculto por defecto */
+  display: none; 
 }
 
 .success {
   color: green;
   margin-bottom: 10px;
-  display: none; /* Oculto por defecto */
+  display: none; 
 }
 
-/* Efecto de hover para las tarjetas de álbumes */
+
 .album-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .album-card:hover {
-  transform: scale(1.05); /* Aumenta el tamaño de la tarjeta */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añade una sombra más prominente */
+  transform: scale(1.05); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .album-card img {
@@ -286,11 +285,11 @@ body, html {
 }
 
 .album-card:hover img {
-  opacity: 0.8; /* Añade un efecto de desvanecimiento a la imagen al pasar el cursor */
+  opacity: 0.8; 
 }
 
 .modal-image {
-  flex: 1; /* Permite que el contenedor de la imagen use el espacio disponible */
+  flex: 1; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -298,22 +297,22 @@ body, html {
 }
 
 .modal-image img {
-  max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
-  max-height: 100%; /* Asegura que la imagen no sea más alta que su contenedor */
-  object-fit: contain; /* Mantiene la proporción de la imagen dentro del contenedor */
+  max-width: 100%; 
+  max-height: 100%; 
+  object-fit: contain; 
 }
 
 .modal-info {
-  margin-top: 20px; /* Espacio entre la imagen y la información */
+  margin-top: 20px; 
 }
 .cart-icon {
-  width: 24px; /* Ajusta el tamaño del icono según tus necesidades */
+  width: 24px; 
   height: 24px;
 }
 .cart-button {
-  text-decoration: none; /* Asegura que el subrayado esté quitado específicamente para el carrito */
+  text-decoration: none; 
 }
-/* Estilo del modal del carrito */
+
 #cartModal {
   display: none;
   position: fixed;
@@ -333,15 +332,15 @@ body, html {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  max-width: 600px; /* Puedes ajustar el tamaño máximo del modal */
+  max-width: 600px; 
 }
 
-/* Estilo de cada ítem del carrito */
+
 .cart-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Espacio entre ítems */
-  border-bottom: 1px solid #ddd; /* Línea divisoria entre ítems */
+  margin-bottom: 10px; 
+  border-bottom: 1px solid #ddd; 
   padding-bottom: 10px;
 }
 
@@ -354,7 +353,7 @@ body, html {
 .cart-item-info {
   flex: 1;
   display: flex;
-  justify-content: space-between; /* Espacia el título y el precio */
+  justify-content: space-between; 
   align-items: center;
 }
 
@@ -367,10 +366,10 @@ body, html {
   text-align: right;
 }
 
-/* Contenedor para el precio total */
+
 .cart-total-container {
   display: flex;
-  justify-content: flex-end; /* Alinea el total al final */
+  justify-content: flex-end; 
   margin-top: 20px;
 }
 
@@ -378,7 +377,7 @@ body, html {
   font-weight: bold;
 }
 
-/* Estilo específico para el botón de eliminación */
+
 button.remove-btn {
   margin-top: 5px;
   width: fit-content;
@@ -387,12 +386,12 @@ button.remove-btn {
   color: white;
   border: none;
   cursor: pointer;
-  font-size: 14px; /* Ajustar tamaño de fuente si es necesario */
-  border-radius: 3px; /* Añadir bordes redondeados */
-  outline: none; /* Eliminar contorno predeterminado */
+  font-size: 14px; 
+  border-radius: 3px; 
+  outline: none; 
 }
 
 button.remove-btn:hover {
-  background-color: darkred; /* Cambiar color al pasar el cursor */
+  background-color: darkred; 
 }
 

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var sellErrorMessage = document.getElementById('sell_error_message');
   var sellSuccessMessage = document.getElementById('sell_success_message');
 
-  // Abrir modal de editar usuario
+  // modal editar usuario
   if (editUserBtn) {
       editUserBtn.onclick = function() {
           editUserModal.style.display = "block";
@@ -29,14 +29,14 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  // Abrir modal de vender álbum
+  // modal vender álbum
   if (sellAlbumBtn) {
       sellAlbumBtn.onclick = function() {
           sellAlbumModal.style.display = "block";
       }
   }
 
-  // Cerrar modal al hacer clic en (x)
+
   Array.from(closeBtns).forEach(btn => {
       btn.onclick = function() {
           editUserModal.style.display = "none";
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 
-  // Cerrar modal al hacer clic en el botón de cancelar
+ 
   if (cancelSellAlbumBtn) {
       cancelSellAlbumBtn.onclick = function() {
           sellAlbumModal.style.display = "none";
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  // Cerrar modal al hacer clic fuera del contenido del modal
+  
   window.onclick = function(event) {
       if (event.target === editUserModal || event.target === sellAlbumModal) {
           editUserModal.style.display = "none";
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   }
 
-  // Manejar el envío del formulario de editar usuario
+
   var editUserForm = document.getElementById('editUserForm');
   if (editUserForm) {
       editUserForm.onsubmit = function(event) {
@@ -88,13 +88,13 @@ document.addEventListener("DOMContentLoaded", function() {
                   setTimeout(() => {
                       editUserModal.style.display = "none";
                       clearModalFields();
-                  }, 2000); // Cierra el modal después de 2 segundos solo en caso de éxito
+                  }, 2000); 
               }
           });
       }
   }
 
-  // Manejar el envío del formulario de vender álbum
+  
   var sellAlbumForm = document.getElementById('sellAlbumForm');
   if (sellAlbumForm) {
       sellAlbumForm.onsubmit = function(event) {
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
                       sellAlbumModal.style.display = "none";
                       clearSellModalFields();
                       window.location.reload();
-                  }, 2000); // Cierra el modal después de 2 segundos solo en caso de éxito
+                  }, 2000); 
               }
           });
       }

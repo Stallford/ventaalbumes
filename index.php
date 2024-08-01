@@ -20,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
         Tu navegador no soporta el formato de video.
     </video>
     <div class="container">
-        <h1>Twice album store</h1>
+        <h1>Album store</h1>
         <form action="login.php" method="post">
             <label for="username">Nombre de usuario:</label>
             <input type="text" id="username" name="username" required>
